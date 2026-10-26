@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "../../../annotations"
+		},
+		{
+			"path": "../../../bin"
+		},
+		{
+			"path": "../../../brain"
+		},
+		{
+			"path": "../../../builtin"
+		},
+		{
+			"path": "../../../conversations"
+		},
+		{
+			"path": "../../../crashes"
+		},
+		{
+			"path": "../../../lib"
+		},
+		{
+			"path": "../.."
+		}
+	]
+}
