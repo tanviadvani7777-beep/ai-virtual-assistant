@@ -26,9 +26,22 @@ try {
    navigate("/")
 } catch (error) {
   console.log(error)
+  if (!error.response) {
+    const demoUser = {
+      name: "Demo User",
+      email,
+      assistantName: "Jarvis",
+      assistantImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80"
+    }
+    localStorage.setItem("demo_user", JSON.stringify(demoUser))
+    setUserData(demoUser)
+    setLoading(false)
+    navigate("/")
+    return
+  }
   setUserData(null)
   setLoading(false)
-  setErr(error.response.data.message)
+  setErr(error.response?.data?.message || "Sign in failed")
 }
     }
   return (

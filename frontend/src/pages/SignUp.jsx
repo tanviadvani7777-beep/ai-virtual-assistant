@@ -27,9 +27,18 @@ try {
   navigate("/customize")
 } catch (error) {
   console.log(error)
+  // If backend is not reachable (e.g. static GitHub Pages demo)
+  if (!error.response) {
+    const demoUser = { name: name || "User", email }
+    localStorage.setItem("demo_user", JSON.stringify(demoUser))
+    setUserData(demoUser)
+    setLoading(false)
+    navigate("/customize")
+    return
+  }
   setUserData(null)
   setLoading(false)
-  setErr(error.response.data.message)
+  setErr(error.response?.data?.message || "Sign up failed")
 }
     }
   return (

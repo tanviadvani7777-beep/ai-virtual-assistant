@@ -5,10 +5,9 @@ import App from './App.jsx'
 import {BrowserRouter} from "react-router-dom"
 import UserContext from './context/UserContext.jsx'
 createRoot(document.getElementById('root')).render(
-<BrowserRouter>
-<UserContext>
-    <App />
-  </UserContext>
+  <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <UserContext>
+      <App />
+    </UserContext>
   </BrowserRouter>
- 
 )

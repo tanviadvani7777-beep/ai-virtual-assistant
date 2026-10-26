@@ -26,7 +26,15 @@ setLoading(false)
             navigate("/")
         } catch (error) {
             setLoading(false)
-            console.log(error)
+            console.log("Saving assistant locally for demo:", error.message)
+            const updated = {
+                ...(userData || {}),
+                assistantName: assistantName,
+                assistantImage: selectedImage || (userData?.assistantImage || "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80")
+            }
+            localStorage.setItem("demo_user", JSON.stringify(updated))
+            setUserData(updated)
+            navigate("/")
         }
     }
 
